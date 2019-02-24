@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_id"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffebcd"
+    android:orientation="vertical"
+    tools:context=".homePage3">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ViewFlipper
+            android:id="@+id/flipper"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.022"></ViewFlipper>
+
+        <android.support.v7.widget.GridLayout
+            android:layout_width="395dp"
+            android:layout_height="330dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.96">
+
+            <ImageButton
+                android:id="@+id/groom"
+                android:layout_width="25dp"
+                android:layout_height="70dp"
+                android:background="@android:color/transparent"
+                app:layout_column="0"
+                app:layout_columnWeight="1"
+                app:layout_row="0"
+                app:layout_rowWeight="1"
+                app:srcCompat="@drawable/groom" />
+
+            <TextView
+                android:id="@+id/spas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="Spa's and &#10;Groomers"
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                app:layout_column="0"
+                app:layout_columnWeight="1"
+                app:layout_row="1"
+                app:layout_rowWeight="1" />
+
+            <ImageButton
+                android:id="@+id/restaurant"
+                android:layout_width="25dp"
+                android:layout_height="70dp"
+                android:background="@android:color/transparent"
+                android:onClick="move"
+                app:layout_column="1"
+                app:layout_columnWeight="1"
+                app:layout_row="0"
+                app:layout_rowWeight="1"
+                app:srcCompat="@drawable/places" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="Dog Friendly&#10;Restaurants"
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                app:layout_column="1"
+                app:layout_columnWeight="1"
+                app:layout_row="1"
+                app:layout_rowWeight="1" />
+
+            <ImageButton
+                android:id="@+id/shop"
+                android:layout_width="25dp"
+                android:layout_height="70dp"
+                android:background="@android:color/transparent"
+                app:layout_column="0"
+                app:layout_columnWeight="1"
+                app:layout_row="2"
+                app:layout_rowWeight="1"
+                app:srcCompat="@drawable/treat" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="PupStop Shop"
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                app:layout_column="0"
+                app:layout_columnWeight="1"
+                app:layout_row="3"
+                app:layout_rowWeight="1" />
+
+            <ImageButton
+                android:id="@+id/vets"
+                android:layout_width="25dp"
+                android:layout_height="70dp"
+                android:background="@android:color/transparent"
+                app:layout_column="1"
+                app:layout_columnWeight="1"
+                app:layout_row="2"
+                app:layout_rowWeight="1"
+                app:srcCompat="@drawable/vet" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="Vets"
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                app:layout_column="1"
+                app:layout_columnWeight="1"
+                app:layout_row="3"
+                app:layout_rowWeight="1" />
+
+            <ImageButton
+                android:id="@+id/trainer"
+                android:layout_width="25dp"
+                android:layout_height="70dp"
+                android:background="@android:color/transparent"
+                app:layout_column="0"
+                app:layout_columnWeight="1"
+                app:layout_row="4"
+                app:layout_rowWeight="1"
+                app:srcCompat="@drawable/trainer" />
+
+            <ImageButton
+                android:id="@+id/lodge"
+                android:layout_width="25dp"
+                android:layout_height="70dp"
+                android:background="@android:color/transparent"
+                app:layout_column="1"
+                app:layout_columnWeight="1"
+                app:layout_row="4"
+                app:layout_rowWeight="1"
+                app:srcCompat="@drawable/lodge" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="Trainers"
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                app:layout_column="0"
+                app:layout_columnWeight="1"
+                app:layout_row="5"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="Lodging"
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                app:layout_column="1"
+                app:layout_columnWeight="1"
+                app:layout_row="5"
+                app:layout_rowWeight="1" />
+
+
+        </android.support.v7.widget.GridLayout>
+
+    </LinearLayout>
+
+    <android.support.design.widget.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/navigation_menu"></android.support.design.widget.NavigationView>
+</android.support.v4.widget.DrawerLayout>
+

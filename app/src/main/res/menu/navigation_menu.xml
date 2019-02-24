@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:id="@+id/nav_home"
+        android:title="Home"/>
+
+    <item android:id="@+id/nav_spa"
+        android:title="Spas and Groomers"/>
+
+    <item android:id="@+id/nav_rest"
+        android:title="Restaurants"/>
+
+    <item android:id="@+id/nav_shop"
+        android:title="Shops"/>
+
+    <item android:id="@+id/nav_vet"
+        android:title="Vets"/>
+
+    <item android:id="@+id/nav_trainer"
+        android:title="Trainers"/>
+
+    <item android:id="@+id/nav_lodge"
+        android:title="Lodging"/>
+    </menu>
