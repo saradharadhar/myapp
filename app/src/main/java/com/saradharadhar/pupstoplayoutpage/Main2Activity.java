@@ -15,7 +15,6 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -42,7 +41,7 @@ public class Main2Activity extends AppCompatActivity {
         pass=(EditText)findViewById(R.id.pass);
         loginProgress=(ProgressBar)findViewById(R.id.loginProgress);
 
-        Typeface myCustomFont=Typeface.createFromAsset(getAssets(),"fonts/Amatic-Bold.ttf");
+        Typeface myCustomFont=Typeface.createFromAsset(getAssets(), "font/Amatic-Bold.ttf");
         loginText.setTypeface(myCustomFont);
         signIn.setTypeface(myCustomFont);
         signUp.setTypeface(myCustomFont);
