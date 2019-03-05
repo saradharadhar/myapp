@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "986996198327",
+    "firebase_url": "https://pupstop-5875e.firebaseio.com",
+    "project_id": "pupstop-5875e",
+    "storage_bucket": "pupstop-5875e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:986996198327:android:8d4643b9374e88b2",
+        "android_client_info": {
+          "package_name": "com.saradharadhar.pupstoplayoutpage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "986996198327-rlii089ip0qcpk8mpo18rt8dv2758tdj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.saradharadhar.pupstoplayoutpage",
+            "certificate_hash": "d95cb2c450131e4cd9d1398df9a2652319ec9c7c"
+          }
+        },
+        {
+          "client_id": "986996198327-no3m4op5ls7ep77vroh6be962mqgtk0d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBUwI9mVC8YYW2f6GxvADVz5VYH17SPdk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "986996198327-no3m4op5ls7ep77vroh6be962mqgtk0d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

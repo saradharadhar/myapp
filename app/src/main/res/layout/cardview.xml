@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffebcd"
+    android:weightSum="2"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="#ffebcd">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingTop="4dp"
+        android:paddingBottom="0dp"
+        android:paddingRight="4dp"
+        android:paddingLeft="4dp"
+        android:background="#ffebcd">
+
+        <TextView
+            android:id="@+id/rest_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/rest_image"
+            android:fontFamily="@font/amaticbold"
+            android:textColor="@android:color/black"
+            android:textSize="45sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rest_name"
+            android:layout_toRightOf="@+id/rest_image"
+            android:id="@+id/rest_type"
+            android:textSize="15sp"
+            tools:ignore="UnknownId" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rest_type"
+            android:layout_toRightOf="@+id/rest_image"
+            android:id="@+id/rest_hours"
+            android:textSize="15sp"
+            tools:ignore="UnknownId" />
+
+        <TextView
+            android:id="@+id/rest_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/rest_name"
+            android:layout_alignParentRight="true"
+            android:background="#ffa07a"
+
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:textSize="15sp"
+            tools:ignore="UnknownId" />
+        
+
+
+        <ImageView
+            android:layout_width="125dp"
+            android:layout_height="100dp"
+            android:id="@+id/rest_image"
+            android:paddingLeft="3dp"
+            android:paddingRight="7dp"
+
+            />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#ffebcd">
+
+
+
+
+    </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>
