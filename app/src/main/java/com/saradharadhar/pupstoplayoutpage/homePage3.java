@@ -117,12 +117,32 @@ ViewFlipper viewFlipper;
 
     }
 
-    public void move(View view)
+    public void RestPage()
     {
         Intent home = new Intent(homePage3.this, restaurantPage.class);
         startActivity(home);
+        finish();
+    }
+    public void RestPage(View view)
+    {
+        Intent home = new Intent(homePage3.this, restaurantPage.class);
+        startActivity(home);
+        finish();
     }
 
+    public void SpaPage()
+    {
+        Intent home = new Intent(homePage3.this, spaPage.class);
+        startActivity(home);
+        finish();
+    }
+
+    public void SpaPage(View view)
+    {
+        Intent home = new Intent(homePage3.this, spaPage.class);
+        startActivity(home);
+        finish();
+    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -135,6 +155,15 @@ ViewFlipper viewFlipper;
             finish();
 
         }
+        if(menuItem.getItemId()==R.id.nav_rest)
+        {
+            RestPage();
+        }
+        if(menuItem.getItemId()==R.id.nav_spa)
+        {
+            SpaPage();
+        }
+
         return false;
     }
 }

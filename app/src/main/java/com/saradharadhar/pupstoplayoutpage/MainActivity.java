@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         t= (TextView)findViewById(R.id.textView2);
         //getSupportActionBar().setDisplayShowTitleEnabled(false);
-        Typeface myCustomFont=Typeface.createFromAsset(getAssets(), "font/Amatic-Bold.ttf");
+        Typeface myCustomFont=Typeface.createFromAsset(getAssets(), "fonts/Amatic-Bold.ttf");
         t.setTypeface(myCustomFont);
         //t.animate().alpha(1).setDuration(4000);
         new Handler().postDelayed(new Runnable() {

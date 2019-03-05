@@ -37,7 +37,7 @@ public class signUpPage extends AppCompatActivity {
         signUpc_pass=(EditText)findViewById(R.id.signUpC_pass);
 
         sauth=FirebaseAuth.getInstance();
-        Typeface myCustomFont=Typeface.createFromAsset(getAssets(), "font/Amatic-Bold.ttf");
+        Typeface myCustomFont=Typeface.createFromAsset(getAssets(), "fonts/Amatic-Bold.ttf");
         t.setTypeface(myCustomFont);
         signUp_button.setTypeface(myCustomFont);
         a.setTypeface(myCustomFont);
@@ -89,7 +89,7 @@ public class signUpPage extends AppCompatActivity {
     {
         Intent home = new Intent(signUpPage.this, homePage3.class);
         startActivity(home);
-        finish();
+
     }
 
     @Override

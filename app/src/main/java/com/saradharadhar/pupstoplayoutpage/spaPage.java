@@ -1,7 +1,6 @@
 package com.saradharadhar.pupstoplayoutpage;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -11,78 +10,55 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.firestore.DocumentChange;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
-import javax.annotation.Nullable;
-
-public class restaurantPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
-    //TextView t,b;
-
-    DatabaseReference reference;
-    private RecyclerView recyclerView;
-    ArrayList<Restaurants> list;
-    RestaurantAdapter restaurantAdapter;
+public class spaPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
 
-
-
+    DatabaseReference reference;
+    private RecyclerView recyclerView;
+    ArrayList<Spas> list;
+    SpaAdapter spaAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_restaurant_page);
-        /*t=(TextView)findViewById(R.id.textViewTitle);
-        b=(TextView)findViewById(R.id.textViewTitle2);
-        Typeface myCustomFont=Typeface.createFromAsset(getAssets(),"fonts/Amatic-Bold.ttf");
-        t.setTypeface(myCustomFont);
-        b.setTypeface(myCustomFont);*/
-        recyclerView=(RecyclerView)findViewById(R.id.restaurant_list);
+        setContentView(R.layout.activity_spa_page);
+        recyclerView=(RecyclerView)findViewById(R.id.spa_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        list=new ArrayList<Restaurants>();
+        list=new ArrayList<Spas>();
 
-        reference= FirebaseDatabase.getInstance().getReference().child("Restaurants");
+        reference= FirebaseDatabase.getInstance().getReference().child("Spas");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren())
                 {
-                    Restaurants r=dataSnapshot1.getValue(Restaurants.class);
-                    list.add(r);
+                    Spas s=dataSnapshot1.getValue(Spas.class);
+                    list.add(s);
                 }
 
-                restaurantAdapter=new RestaurantAdapter(restaurantPage.this,list);
-                recyclerView.setAdapter(restaurantAdapter);
+                spaAdapter=new SpaAdapter(spaPage.this,list);
+                recyclerView.setAdapter(spaAdapter);
 
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(restaurantPage.this, "wrong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(spaPage.this, "wrong", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -99,10 +75,6 @@ public class restaurantPage extends AppCompatActivity implements NavigationView.
         }
         NavigationView navigationView=(NavigationView)findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-
-
-
     }
 
     @Override
@@ -129,16 +101,24 @@ public class restaurantPage extends AppCompatActivity implements NavigationView.
 
     }
 
+
+
+
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
+
         if(menuItem.getItemId()==R.id.nav_home)
         {
-            Intent login = new Intent(restaurantPage.this, homePage3.class);
+            Intent login = new Intent(spaPage.this, homePage3.class);
             startActivity(login);
             finish();
 
         }
-        return false;
+
+            return false;
     }
+
+
 }

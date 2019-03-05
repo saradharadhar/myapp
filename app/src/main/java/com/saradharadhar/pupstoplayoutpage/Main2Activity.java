@@ -41,7 +41,7 @@ public class Main2Activity extends AppCompatActivity {
         pass=(EditText)findViewById(R.id.pass);
         loginProgress=(ProgressBar)findViewById(R.id.loginProgress);
 
-        Typeface myCustomFont=Typeface.createFromAsset(getAssets(), "font/Amatic-Bold.ttf");
+        Typeface myCustomFont=Typeface.createFromAsset(getAssets(), "fonts/Amatic-Bold.ttf");
         loginText.setTypeface(myCustomFont);
         signIn.setTypeface(myCustomFont);
         signUp.setTypeface(myCustomFont);
@@ -99,6 +99,7 @@ public class Main2Activity extends AppCompatActivity {
     {
         Intent signUp = new Intent(Main2Activity.this, signUpPage.class);
         startActivity(signUp);
+        finish();
 
     }
 
