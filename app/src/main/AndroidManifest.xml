@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".spaPage"></activity>
+        <activity android:name=".cartPage"></activity>
+        <activity android:name=".shopPage" />
+        <activity android:name=".spaPage" />
         <activity android:name=".restaurantPage" />
         <activity android:name=".signUpPage" />
         <activity android:name=".homePage3" />

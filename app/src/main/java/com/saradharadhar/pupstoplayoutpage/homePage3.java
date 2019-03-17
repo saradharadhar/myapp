@@ -166,4 +166,11 @@ ViewFlipper viewFlipper;
 
         return false;
     }
+
+    public void shopIntent(View view)
+    {
+        Intent shop = new Intent(homePage3.this, shopPage.class);
+        startActivity(shop);
+        finish();
+    }
 }

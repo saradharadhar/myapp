@@ -2,42 +2,23 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffebcd"
     android:orientation="vertical"
-    tools:context=".homePage3">
-<android.support.v4.widget.DrawerLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/drawer_id">
-    <LinearLayout
+    tools:context=".shopPage">
+    <android.support.v4.widget.DrawerLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:id="@+id/drawer_id">
 
-        <ViewFlipper
-            android:id="@+id/flipper"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.022"></ViewFlipper>
+            android:layout_height="match_parent">
 
         <android.support.v7.widget.GridLayout
-            android:layout_width="395dp"
-            android:layout_height="330dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
@@ -52,23 +33,22 @@
             app:layout_constraintVertical_bias="0.96">
 
             <ImageButton
-                android:id="@+id/groom"
+                android:id="@+id/dogbone"
                 android:layout_width="25dp"
                 android:layout_height="70dp"
                 android:background="@android:color/transparent"
-                android:onClick="SpaPage"
                 app:layout_column="0"
                 app:layout_columnWeight="1"
                 app:layout_row="0"
                 app:layout_rowWeight="1"
-                app:srcCompat="@drawable/groom" />
+                app:srcCompat="@drawable/dogbone" />
 
             <TextView
                 android:id="@+id/spas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal|center_vertical"
-                android:text="Spa's and &#10;Groomers"
+                android:text="Dogbone"
                 android:textColor="@android:color/black"
                 android:textSize="12sp"
                 app:layout_column="0"
@@ -77,23 +57,22 @@
                 app:layout_rowWeight="1" />
 
             <ImageButton
-                android:id="@+id/restaurant"
+                android:id="@+id/doghat"
                 android:layout_width="25dp"
                 android:layout_height="70dp"
                 android:background="@android:color/transparent"
-                android:onClick="RestPage"
                 app:layout_column="1"
                 app:layout_columnWeight="1"
                 app:layout_row="0"
                 app:layout_rowWeight="1"
-                app:srcCompat="@drawable/places" />
+                app:srcCompat="@drawable/doghat" />
 
             <TextView
                 android:id="@+id/textView8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal|center_vertical"
-                android:text="Dog Friendly&#10;Restaurants"
+                android:text="Red hat"
                 android:textColor="@android:color/black"
                 android:textSize="12sp"
                 app:layout_column="1"
@@ -102,87 +81,86 @@
                 app:layout_rowWeight="1" />
 
             <ImageButton
-                android:id="@+id/shop"
+                android:id="@+id/dogjumper"
                 android:layout_width="25dp"
                 android:layout_height="70dp"
                 android:background="@android:color/transparent"
-                android:onClick="shopIntent"
                 app:layout_column="0"
                 app:layout_columnWeight="1"
-                app:layout_row="2"
+                app:layout_row="3"
                 app:layout_rowWeight="1"
-                app:srcCompat="@drawable/treat" />
+                app:srcCompat="@drawable/dogjumper" />
 
             <TextView
                 android:id="@+id/textView10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal|center_vertical"
-                android:text="PupStop Shop"
+                android:text="Jumper"
                 android:textColor="@android:color/black"
                 android:textSize="12sp"
                 app:layout_column="0"
                 app:layout_columnWeight="1"
-                app:layout_row="3"
+                app:layout_row="4"
                 app:layout_rowWeight="1" />
 
             <ImageButton
-                android:id="@+id/vets"
+                android:id="@+id/dogballs"
                 android:layout_width="25dp"
                 android:layout_height="70dp"
                 android:background="@android:color/transparent"
                 app:layout_column="1"
                 app:layout_columnWeight="1"
-                app:layout_row="2"
+                app:layout_row="3"
                 app:layout_rowWeight="1"
-                app:srcCompat="@drawable/vet" />
+                app:srcCompat="@drawable/dogballs" />
 
             <TextView
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal|center_vertical"
-                android:text="Vets"
+                android:text="ball"
                 android:textColor="@android:color/black"
                 android:textSize="12sp"
                 app:layout_column="1"
                 app:layout_columnWeight="1"
-                app:layout_row="3"
+                app:layout_row="4"
                 app:layout_rowWeight="1" />
 
             <ImageButton
-                android:id="@+id/trainer"
+                android:id="@+id/dogjacket"
                 android:layout_width="25dp"
                 android:layout_height="70dp"
                 android:background="@android:color/transparent"
                 app:layout_column="0"
                 app:layout_columnWeight="1"
-                app:layout_row="4"
+                app:layout_row="5"
                 app:layout_rowWeight="1"
-                app:srcCompat="@drawable/trainer" />
+                app:srcCompat="@drawable/dogjacket" />
 
             <ImageButton
-                android:id="@+id/lodge"
+                android:id="@+id/dogfood"
                 android:layout_width="25dp"
                 android:layout_height="70dp"
                 android:background="@android:color/transparent"
                 app:layout_column="1"
                 app:layout_columnWeight="1"
-                app:layout_row="4"
+                app:layout_row="5"
                 app:layout_rowWeight="1"
-                app:srcCompat="@drawable/lodge" />
+                app:srcCompat="@drawable/dogfood" />
 
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal|center_vertical"
-                android:text="Trainers"
+                android:text="Jacket"
                 android:textColor="@android:color/black"
                 android:textSize="12sp"
                 app:layout_column="0"
                 app:layout_columnWeight="1"
-                app:layout_row="5"
+                app:layout_row="6"
                 app:layout_rowWeight="1" />
 
             <TextView
@@ -190,27 +168,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal|center_vertical"
-                android:text="Lodging"
+                android:text="Food"
                 android:textColor="@android:color/black"
                 android:textSize="12sp"
                 app:layout_column="1"
                 app:layout_columnWeight="1"
-                app:layout_row="5"
+                app:layout_row="6"
                 app:layout_rowWeight="1" />
+
 
 
         </android.support.v7.widget.GridLayout>
 
-    </LinearLayout>
 
-    <android.support.design.widget.NavigationView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        app:menu="@menu/navigation_menu"
-        android:id="@+id/nav_view">
 
-    </android.support.design.widget.NavigationView>
-</android.support.v4.widget.DrawerLayout>
+            </LinearLayout>
+
+        <android.support.design.widget.NavigationView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:menu="@menu/navigation_menu"
+            android:id="@+id/nav_view">
+
+        </android.support.design.widget.NavigationView>
+    </android.support.v4.widget.DrawerLayout>
+
 </android.support.constraint.ConstraintLayout>
-

@@ -15,6 +15,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,6 +50,8 @@ public class restaurantPage extends AppCompatActivity implements NavigationView.
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
+    private Button book;
+    private TextView name;
 
 
 
@@ -63,6 +67,8 @@ public class restaurantPage extends AppCompatActivity implements NavigationView.
         recyclerView=(RecyclerView)findViewById(R.id.restaurant_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         list=new ArrayList<Restaurants>();
+        book=(Button)findViewById(R.id.book);
+        name=(TextView)findViewById(R.id.rest_name);
 
         reference= FirebaseDatabase.getInstance().getReference().child("Restaurants");
         reference.addValueEventListener(new ValueEventListener() {
@@ -99,7 +105,6 @@ public class restaurantPage extends AppCompatActivity implements NavigationView.
         }
         NavigationView navigationView=(NavigationView)findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
 
 
 

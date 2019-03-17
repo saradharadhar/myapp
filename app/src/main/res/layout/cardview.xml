@@ -74,6 +74,19 @@
 
             />
 
+        <Button
+            android:id="@+id/book"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rest_rating"
+            android:layout_alignParentRight="true"
+            android:background="#ffa07a"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Book"
+            android:textColor="@android:color/white"
+            android:textSize="15sp" />
+
     </RelativeLayout>
 
     <LinearLayout
