@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -52,6 +53,7 @@ public class restaurantPage extends AppCompatActivity implements NavigationView.
     ActionBarDrawerToggle actionBarDrawerToggle;
     private Button book;
     private TextView name;
+    FirebaseAuth auth;
 
 
 
@@ -69,6 +71,8 @@ public class restaurantPage extends AppCompatActivity implements NavigationView.
         list=new ArrayList<Restaurants>();
         book=(Button)findViewById(R.id.book);
         name=(TextView)findViewById(R.id.rest_name);
+        auth=FirebaseAuth.getInstance();
+        getSupportActionBar().setTitle("Restaurants");
 
         reference= FirebaseDatabase.getInstance().getReference().child("Restaurants");
         reference.addValueEventListener(new ValueEventListener() {
@@ -143,6 +147,50 @@ public class restaurantPage extends AppCompatActivity implements NavigationView.
             startActivity(login);
             finish();
 
+        }
+        if(menuItem.getItemId()==R.id.nav_rest)
+        {
+            Intent home = new Intent(restaurantPage.this, restaurantPage.class);
+            startActivity(home);
+            finish();
+        }
+        if(menuItem.getItemId()==R.id.nav_spa)
+        {
+            Intent home = new Intent(restaurantPage.this, spaPage.class);
+            startActivity(home);
+            finish();
+        }
+        if(menuItem.getItemId()==R.id.nav_vet)
+        {
+            Intent vet = new Intent(restaurantPage.this, vetPage.class);
+            startActivity(vet);
+            finish();
+        }
+        if(menuItem.getItemId()==R.id.nav_trainer)
+        {
+            Intent trainer = new Intent(restaurantPage.this, trainerPage.class);
+            startActivity(trainer);
+            finish();
+        }
+        if(menuItem.getItemId()==R.id.nav_lodge)
+        {
+            Intent lodge = new Intent(restaurantPage.this, lodgePage.class);
+            startActivity(lodge);
+            finish();
+        }
+        if(menuItem.getItemId()==R.id.nav_logout)
+        {
+            auth.signOut();
+            Intent login = new Intent(restaurantPage.this, Main2Activity.class);
+            startActivity(login);
+            finish();
+
+        }
+        if(menuItem.getItemId()==R.id.nav_shop)
+        {
+            Intent shop = new Intent(restaurantPage.this, shopPage.class);
+            startActivity(shop);
+            finish();
         }
         return false;
     }

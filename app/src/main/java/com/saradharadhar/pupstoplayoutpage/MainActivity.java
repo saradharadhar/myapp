@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         t= (TextView)findViewById(R.id.textView2);
         //getSupportActionBar().setDisplayShowTitleEnabled(false);
         Typeface myCustomFont=Typeface.createFromAsset(getAssets(), "fonts/Amatic-Bold.ttf");

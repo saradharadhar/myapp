@@ -15,7 +15,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.google.android.gms.auth.api.signin.GoogleSignInApi;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,52 +24,52 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class spaPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class trainerPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
 
     DatabaseReference reference;
     private RecyclerView recyclerView;
-    ArrayList<Spas> list;
-    SpaAdapter spaAdapter;
-    private FirebaseAuth auth;
+    ArrayList<Trainers> list;
+    TrainerAdapter trainerAdapter ;
+    FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_spa_page);
-        recyclerView=(RecyclerView)findViewById(R.id.spa_list);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        list=new ArrayList<Spas>();
-        auth=FirebaseAuth.getInstance();
-        getSupportActionBar().setTitle("Spa's & Groomers");
+        setContentView(R.layout.activity_trainer_page);
 
-        reference= FirebaseDatabase.getInstance().getReference().child("Spas");
+        recyclerView = (RecyclerView) findViewById(R.id.trainer_list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        list = new ArrayList<Trainers>();
+        auth=FirebaseAuth.getInstance();
+        getSupportActionBar().setTitle("Trainers");
+
+        reference = FirebaseDatabase.getInstance().getReference().child("Trainers");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren())
-                {
-                    Spas s=dataSnapshot1.getValue(Spas.class);
+                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                    Trainers s = dataSnapshot1.getValue(Trainers.class);
                     list.add(s);
                 }
 
-                spaAdapter=new SpaAdapter(spaPage.this,list);
-                recyclerView.setAdapter(spaAdapter);
+                trainerAdapter = new TrainerAdapter(trainerPage.this, list);
+                recyclerView.setAdapter(trainerAdapter);
 
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(spaPage.this, "wrong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(trainerPage.this, "wrong", Toast.LENGTH_SHORT).show();
 
             }
         });
 
-        drawerLayout=(DrawerLayout)findViewById(R.id.drawer_id);
-        actionBarDrawerToggle=new ActionBarDrawerToggle(this, drawerLayout,R.string.open,R.string.close);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_id);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
 
@@ -79,8 +78,8 @@ public class spaPage extends AppCompatActivity implements NavigationView.OnNavig
             // method invoked only when the actionBar is not null.
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
-        NavigationView navigationView=(NavigationView)findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(trainerPage.this);
     }
 
     @Override
@@ -93,12 +92,10 @@ public class spaPage extends AppCompatActivity implements NavigationView.OnNavig
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
+    public boolean onOptionsItemSelected(MenuItem item) {
 
 
-        if(actionBarDrawerToggle.onOptionsItemSelected(item))
-        {
+        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
 
@@ -107,68 +104,60 @@ public class spaPage extends AppCompatActivity implements NavigationView.OnNavig
 
     }
 
-
-
-
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
-
         if(menuItem.getItemId()==R.id.nav_home)
         {
-            Intent login = new Intent(spaPage.this, homePage3.class);
+            Intent login = new Intent(trainerPage.this, homePage3.class);
             startActivity(login);
             finish();
 
         }
         if(menuItem.getItemId()==R.id.nav_rest)
         {
-            Intent home = new Intent(spaPage.this, restaurantPage.class);
+            Intent home = new Intent(trainerPage.this, restaurantPage.class);
             startActivity(home);
             finish();
         }
         if(menuItem.getItemId()==R.id.nav_spa)
         {
-            Intent home = new Intent(spaPage.this, spaPage.class);
+            Intent home = new Intent(trainerPage.this, spaPage.class);
             startActivity(home);
             finish();
         }
         if(menuItem.getItemId()==R.id.nav_vet)
         {
-            Intent vet = new Intent(spaPage.this, vetPage.class);
+            Intent vet = new Intent(trainerPage.this, vetPage.class);
             startActivity(vet);
             finish();
         }
         if(menuItem.getItemId()==R.id.nav_trainer)
         {
-            Intent trainer = new Intent(spaPage.this, trainerPage.class);
+            Intent trainer = new Intent(trainerPage.this, trainerPage.class);
             startActivity(trainer);
             finish();
         }
         if(menuItem.getItemId()==R.id.nav_lodge)
         {
-            Intent lodge = new Intent(spaPage.this, lodgePage.class);
+            Intent lodge = new Intent(trainerPage.this, lodgePage.class);
             startActivity(lodge);
             finish();
         }
         if(menuItem.getItemId()==R.id.nav_logout)
         {
             auth.signOut();
-            Intent login = new Intent(spaPage.this, Main2Activity.class);
+            Intent login = new Intent(trainerPage.this, Main2Activity.class);
             startActivity(login);
             finish();
 
         }
         if(menuItem.getItemId()==R.id.nav_shop)
         {
-            Intent shop = new Intent(spaPage.this, shopPage.class);
+            Intent shop = new Intent(trainerPage.this, shopPage.class);
             startActivity(shop);
             finish();
         }
-
-            return false;
+        return false;
     }
-
-
 }

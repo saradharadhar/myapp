@@ -6,74 +6,62 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
-public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHolder> {
+public class LodgeAdapter extends RecyclerView.Adapter<LodgeAdapter.MyViewHolder> {
 
     Context context;
-    ArrayList<Orders> carts;
+    ArrayList<Lodges> lodges;
 
-    public OrdersAdapter(Context c,ArrayList<Orders> r) {
+    public LodgeAdapter(Context c,ArrayList<Lodges> s) {
 
         context=c;
-        carts=r;
+        lodges=s;
+
 
     }
+
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new OrdersAdapter.MyViewHolder(LayoutInflater.from(context).inflate(R.layout.cardview,viewGroup,false));
+        return new LodgeAdapter.MyViewHolder(LayoutInflater.from(context).inflate(R.layout.cardview,viewGroup,false));
+
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
 
-        myViewHolder.name.setText(carts.get(i).getName());
-
-
+        myViewHolder.name.setText(lodges.get(i).getName());
+        myViewHolder.hours.setText(lodges.get(i).getHours());
+        //myViewHolder.type.setText(trainers.get(i).getType());
+        myViewHolder.rating.setText(lodges.get(i).getRating());
+        Picasso.get().load(lodges.get(i).getPhoto()).into(myViewHolder.photo);
 
     }
 
     @Override
     public int getItemCount() {
-        return carts.size();
+        return lodges.size();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder
-    {
-        TextView name;
-        TextView hours,type,rating;
-        Button book;
+    public class MyViewHolder extends RecyclerView.ViewHolder{
+        TextView name,hours,rating;
 
         ImageView photo;
 
-
-        public MyViewHolder(View itemView)
-        {
+        public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             name=(TextView)itemView.findViewById(R.id.rest_name);
             hours=(TextView)itemView.findViewById(R.id.rest_hours);
-            type=(TextView)itemView.findViewById(R.id.rest_type);
+            //type=(TextView)itemView.findViewById(R.id.rest_type);
             rating=(TextView)itemView.findViewById(R.id.rest_rating);
             photo=(ImageView)itemView.findViewById(R.id.rest_image);
-            book=(Button)itemView.findViewById(R.id.book);
-
-            hours.setVisibility(View.INVISIBLE);
-            type.setVisibility(View.INVISIBLE);
-            rating.setVisibility(View.INVISIBLE);
-            photo.setVisibility(View.INVISIBLE);
-            book.setVisibility(View.INVISIBLE);
-
-
         }
     }
 }

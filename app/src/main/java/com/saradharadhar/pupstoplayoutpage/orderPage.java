@@ -15,7 +15,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class cartPage extends AppCompatActivity {
+public class orderPage extends AppCompatActivity {
 
     DatabaseReference reference;
     private RecyclerView recyclerView;
@@ -27,6 +27,7 @@ public class cartPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart_page);
+        getSupportActionBar().setTitle("Orders");
 
         recyclerView=(RecyclerView)findViewById(R.id.cart_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -44,14 +45,14 @@ public class cartPage extends AppCompatActivity {
                     list.add(r);
                 }
 
-                OrdersAdapter =new OrdersAdapter(cartPage.this,list);
+                OrdersAdapter =new OrdersAdapter(orderPage.this,list);
                 recyclerView.setAdapter(OrdersAdapter);
 
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(cartPage.this, "wrong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(orderPage.this, "wrong", Toast.LENGTH_SHORT).show();
 
             }
         });

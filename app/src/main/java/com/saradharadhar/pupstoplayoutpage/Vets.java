@@ -1,8 +1,16 @@
 package com.saradharadhar.pupstoplayoutpage;
 
-public class Spas {
+public class Vets {
 
-    private String name;private String hours; private String address;private String photo;
+    private String name;
+    private String hours;
+    private String type;
+    private String photo;
+    double rating;
+
+    public Vets(String photo) {
+        this.photo = photo;
+    }
 
     public String getPhoto() {
         return photo;
@@ -12,29 +20,19 @@ public class Spas {
         this.photo = photo;
     }
 
-    double rating;
 
-    public Spas() {
+    public Vets() {
     }
 
-    public Spas(String name, String hours,String address, double rating,String photo) {
+    public Vets(String name, String hours, double rating, String type) {
         this.name = name;
         this.hours = hours;
         this.rating = rating;
-        this.address=address;
-        this.photo=photo;
+        this.type = type;
     }
 
     public String getName() {
         return name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public void setName(String name) {
@@ -50,6 +48,7 @@ public class Spas {
     }
 
     public String getRating() {
+
         double r=rating;
 
         String rat=Double.toString(r);
@@ -59,5 +58,13 @@ public class Spas {
 
     public void setRating(double rating) {
         this.rating = rating;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

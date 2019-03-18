@@ -32,7 +32,7 @@
             android:layout_toRightOf="@+id/rest_image"
             android:fontFamily="@font/amaticbold"
             android:textColor="@android:color/black"
-            android:textSize="45sp" />
+            android:textSize="35sp" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
             android:layout_alignTop="@+id/rest_name"
             android:layout_alignParentRight="true"
             android:background="#ffa07a"
-
+            android:textColor="@android:color/black"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:textSize="15sp"
@@ -76,15 +76,12 @@
 
         <Button
             android:id="@+id/book"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/rest_rating"
+            android:layout_width="65dp"
+            android:layout_height="30dp"
             android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
             android:background="#ffa07a"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
             android:text="Book"
-            android:textColor="@android:color/white"
             android:textSize="15sp" />
 
     </RelativeLayout>

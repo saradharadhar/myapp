@@ -35,147 +35,204 @@
             <ImageButton
                 android:id="@+id/dogbone"
                 android:layout_width="25dp"
-                android:layout_height="70dp"
+                android:layout_height="110dp"
                 android:background="@android:color/transparent"
                 app:layout_column="0"
                 app:layout_columnWeight="1"
                 app:layout_row="0"
-                app:layout_rowWeight="1"
                 app:srcCompat="@drawable/dogbone" />
 
             <TextView
-                android:id="@+id/spas"
+                android:id="@+id/dogbone_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal|center_vertical"
-                android:text="Dogbone"
+                android:text="Dogbone &#10; Rs.200"
                 android:textColor="@android:color/black"
                 android:textSize="12sp"
                 app:layout_column="0"
                 app:layout_columnWeight="1"
-                app:layout_row="1"
-                app:layout_rowWeight="1" />
+                app:layout_row="1" />
 
             <ImageButton
                 android:id="@+id/doghat"
                 android:layout_width="25dp"
-                android:layout_height="70dp"
+                android:layout_height="110dp"
                 android:background="@android:color/transparent"
                 app:layout_column="1"
                 app:layout_columnWeight="1"
                 app:layout_row="0"
-                app:layout_rowWeight="1"
                 app:srcCompat="@drawable/doghat" />
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/hat_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal|center_vertical"
-                android:text="Red hat"
+                android:text="Red hat &#10; Rs.350"
                 android:textColor="@android:color/black"
                 android:textSize="12sp"
                 app:layout_column="1"
                 app:layout_columnWeight="1"
                 app:layout_row="1"
-                app:layout_rowWeight="1" />
+                app:layout_rowWeight="0" />
 
             <ImageButton
                 android:id="@+id/dogjumper"
                 android:layout_width="25dp"
-                android:layout_height="70dp"
+                android:layout_height="110dp"
                 android:background="@android:color/transparent"
                 app:layout_column="0"
                 app:layout_columnWeight="1"
                 app:layout_row="3"
-                app:layout_rowWeight="1"
                 app:srcCompat="@drawable/dogjumper" />
 
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/jumper_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal|center_vertical"
-                android:text="Jumper"
+                android:text="Jumper &#10; Rs.500"
                 android:textColor="@android:color/black"
                 android:textSize="12sp"
                 app:layout_column="0"
                 app:layout_columnWeight="1"
-                app:layout_row="4"
-                app:layout_rowWeight="1" />
+                app:layout_row="4" />
 
             <ImageButton
                 android:id="@+id/dogballs"
                 android:layout_width="25dp"
-                android:layout_height="70dp"
+                android:layout_height="110dp"
                 android:background="@android:color/transparent"
                 app:layout_column="1"
                 app:layout_columnWeight="1"
                 app:layout_row="3"
-                app:layout_rowWeight="1"
+                app:layout_rowWeight="0"
                 app:srcCompat="@drawable/dogballs" />
 
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/ball_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal|center_vertical"
-                android:text="ball"
+                android:text="Ball &#10; Rs.100"
                 android:textColor="@android:color/black"
                 android:textSize="12sp"
                 app:layout_column="1"
                 app:layout_columnWeight="1"
-                app:layout_row="4"
-                app:layout_rowWeight="1" />
+                app:layout_row="4" />
 
             <ImageButton
                 android:id="@+id/dogjacket"
                 android:layout_width="25dp"
-                android:layout_height="70dp"
+                android:layout_height="110dp"
                 android:background="@android:color/transparent"
                 app:layout_column="0"
                 app:layout_columnWeight="1"
-                app:layout_row="5"
-                app:layout_rowWeight="1"
+                app:layout_row="6"
+                app:layout_rowWeight="0"
                 app:srcCompat="@drawable/dogjacket" />
 
             <ImageButton
                 android:id="@+id/dogfood"
                 android:layout_width="25dp"
-                android:layout_height="70dp"
+                android:layout_height="110dp"
                 android:background="@android:color/transparent"
                 app:layout_column="1"
                 app:layout_columnWeight="1"
-                app:layout_row="5"
-                app:layout_rowWeight="1"
+                app:layout_row="6"
                 app:srcCompat="@drawable/dogfood" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/jacket_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal|center_vertical"
-                android:text="Jacket"
+                android:text="Jacket &#10; Rs.500"
                 android:textColor="@android:color/black"
                 android:textSize="12sp"
                 app:layout_column="0"
                 app:layout_columnWeight="1"
-                app:layout_row="6"
-                app:layout_rowWeight="1" />
+                app:layout_row="7" />
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/food_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal|center_vertical"
-                android:text="Food"
+                android:text="Food &#10; Rs.650"
                 android:textColor="@android:color/black"
                 android:textSize="12sp"
                 app:layout_column="1"
                 app:layout_columnWeight="1"
-                app:layout_row="6"
-                app:layout_rowWeight="1" />
+                app:layout_row="7"
+                app:layout_rowWeight="0" />
 
+            <ImageButton
+                android:id="@+id/jumper_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#ffebcd"
+                android:padding="1dp"
+                app:layout_column="0"
+                app:layout_columnWeight="1"
+                app:layout_row="5"
+                app:srcCompat="@drawable/cart" />
+
+            <ImageButton
+                android:id="@+id/bone_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#ffebcd"
+                android:padding="1dp"
+                app:layout_column="0"
+                app:layout_columnWeight="1"
+                app:layout_row="2"
+                app:srcCompat="@drawable/cart" />
+
+            <ImageButton
+                android:id="@+id/jacket_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#ffebcd"
+                android:padding="1dp"
+                app:layout_column="0"
+                app:layout_columnWeight="1"
+                app:layout_row="8"
+                app:srcCompat="@drawable/cart" />
+
+            <ImageButton
+                android:id="@+id/hat_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#ffebcd"
+                android:padding="1dp"
+                app:layout_column="1"
+                app:layout_columnWeight="1"
+                app:layout_row="2"
+                app:srcCompat="@drawable/cart" />
+
+            <ImageButton
+                android:id="@+id/ball_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#ffebcd"
+                android:padding="1dp"
+                app:layout_column="1"
+                app:layout_columnWeight="1"
+                app:layout_row="5"
+                app:srcCompat="@drawable/cart" />
+
+            <ImageButton
+                android:id="@+id/food_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#ffebcd"
+                android:padding="1dp"
+                app:layout_column="1"
+                app:layout_columnWeight="1"
+                app:layout_row="8"
+                app:srcCompat="@drawable/cart" />
 
 
         </android.support.v7.widget.GridLayout>

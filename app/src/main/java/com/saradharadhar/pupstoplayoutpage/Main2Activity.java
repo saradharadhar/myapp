@@ -51,6 +51,7 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         auth=FirebaseAuth.getInstance();
         loginText=(TextView)findViewById(R.id.login);
@@ -84,7 +85,7 @@ public class Main2Activity extends AppCompatActivity {
 
                     if(email.equals("admin@gmail.com") && password.equals("admin"))
                     {
-                        Intent intent =  new Intent(Main2Activity.this, cartPage.class);
+                        Intent intent =  new Intent(Main2Activity.this, orderPage.class);
                         startActivity(intent);
                         finish();
                     }
@@ -204,7 +205,9 @@ public class Main2Activity extends AppCompatActivity {
 
         if(currentUser!=null)
         {
-            skip();
+            Intent home = new Intent(Main2Activity.this, homePage3.class);
+            startActivity(home);
+            finish();
 
         }
     }

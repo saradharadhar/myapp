@@ -42,6 +42,7 @@ ViewFlipper viewFlipper;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page3);
+        getSupportActionBar().setTitle("Home");
 
         auth=FirebaseAuth.getInstance();
         int images[]={R.drawable.pupstop,R.drawable.beach,R.drawable.yorkie,R.drawable.shihtzu};
@@ -163,6 +164,18 @@ ViewFlipper viewFlipper;
         {
             SpaPage();
         }
+        if(menuItem.getItemId()==R.id.nav_vet)
+        {
+            vetIntent();
+        }
+        if(menuItem.getItemId()==R.id.nav_trainer)
+        {
+            trainerIntent();
+        }
+        if(menuItem.getItemId()==R.id.nav_lodge)
+        {
+            lodgeIntent();
+        }
 
         return false;
     }
@@ -171,6 +184,44 @@ ViewFlipper viewFlipper;
     {
         Intent shop = new Intent(homePage3.this, shopPage.class);
         startActivity(shop);
+        finish();
+    }
+
+    public void vetIntent()
+    {
+        Intent vet = new Intent(homePage3.this, vetPage.class);
+        startActivity(vet);
+        finish();
+    }
+    public void vetIntent(View view)
+    {
+        Intent vet = new Intent(homePage3.this, vetPage.class);
+        startActivity(vet);
+        finish();
+    }
+    public void trainerIntent()
+    {
+        Intent trainer = new Intent(homePage3.this, trainerPage.class);
+        startActivity(trainer);
+        finish();
+    }
+    public void trainerIntent(View view)
+    {
+        Intent trainer = new Intent(homePage3.this, trainerPage.class);
+        startActivity(trainer);
+        finish();
+    }
+
+    public void lodgeIntent()
+    {
+        Intent lodge = new Intent(homePage3.this, lodgePage.class);
+        startActivity(lodge);
+        finish();
+    }
+    public void lodgeIntent(View view)
+    {
+        Intent lodge = new Intent(homePage3.this, lodgePage.class);
+        startActivity(lodge);
         finish();
     }
 }

@@ -6,7 +6,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -33,8 +36,9 @@ public class SpaAdapter extends RecyclerView.Adapter<SpaAdapter.MyViewHolder>{
 
         myViewHolder.name.setText(spas.get(i).getName());
         myViewHolder.hours.setText(spas.get(i).getHours());
-        myViewHolder.address.setText(spas.get(i).getAddress());
+        //myViewHolder.address.setText(spas.get(i).getAddress());
         myViewHolder.rating.setText(spas.get(i).getRating());
+        Picasso.get().load(spas.get(i).getPhoto()).into(myViewHolder.photo);
 
     }
 
@@ -47,6 +51,8 @@ public class SpaAdapter extends RecyclerView.Adapter<SpaAdapter.MyViewHolder>{
 
         TextView name,hours,rating,address;
 
+        ImageView photo;
+
     public MyViewHolder(@NonNull View itemView) {
         super(itemView);
 
@@ -54,6 +60,7 @@ public class SpaAdapter extends RecyclerView.Adapter<SpaAdapter.MyViewHolder>{
         hours=(TextView)itemView.findViewById(R.id.rest_hours);
         address=(TextView)itemView.findViewById(R.id.rest_type);
         rating=(TextView)itemView.findViewById(R.id.rest_rating);
+        photo=(ImageView)itemView.findViewById(R.id.rest_image);
     }
 }
 }
