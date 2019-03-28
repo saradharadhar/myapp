@@ -1,9 +1,31 @@
 package com.saradharadhar.pupstoplayoutpage;
 
-public class Adoptions {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Adoptions implements Parcelable {
 
     String age,breed,colour;
     String photo;
+
+    protected Adoptions(Parcel in) {
+        age = in.readString();
+        breed = in.readString();
+        colour = in.readString();
+        photo = in.readString();
+    }
+
+    public static final Creator<Adoptions> CREATOR = new Creator<Adoptions>() {
+        @Override
+        public Adoptions createFromParcel(Parcel in) {
+            return new Adoptions(in);
+        }
+
+        @Override
+        public Adoptions[] newArray(int size) {
+            return new Adoptions[size];
+        }
+    };
 
     public String getPhoto() {
         return photo;
@@ -48,5 +70,18 @@ public class Adoptions {
     }
 
     public Adoptions() {
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(age);
+        dest.writeString(breed);
+        dest.writeString(colour);
+        dest.writeString(photo);
     }
 }

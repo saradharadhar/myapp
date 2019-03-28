@@ -2,7 +2,7 @@
     <string name="app_name">PupStop</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
-    
+
     <string-array name="restaurantBooking">
         <item>5pm,Today</item>
         <item>7pm,Today</item>

@@ -71,7 +71,7 @@ ViewFlipper viewFlipper;
         navigationView.setNavigationItemSelectedListener(this);
 
     }
-
+//for side bar
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {

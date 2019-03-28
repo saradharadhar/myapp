@@ -70,7 +70,7 @@ public class Main2Activity extends AppCompatActivity {
         signUp.setTypeface(myCustomFont);
         d.setTypeface(myCustomFont);
         skip.setTypeface(myCustomFont);
-
+// firebase sign in
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -158,7 +158,6 @@ public class Main2Activity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             if(result.isSuccess())
@@ -189,7 +188,7 @@ public class Main2Activity extends AppCompatActivity {
                             Toast.makeText(Main2Activity.this,"Authentication failed.",Toast.LENGTH_SHORT).show();
                         }
 
-                        // ...
+
                     }
                 });
     }

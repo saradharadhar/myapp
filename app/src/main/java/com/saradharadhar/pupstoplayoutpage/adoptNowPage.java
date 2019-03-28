@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class adoptNowPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class adoptNowPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, AdoptionAdapter.OnNoteListenerAdopt {
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
@@ -42,6 +42,7 @@ public class adoptNowPage extends AppCompatActivity implements NavigationView.On
 
         recyclerView=(RecyclerView)findViewById(R.id.adopt_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        final AdoptionAdapter.OnNoteListenerAdopt onNoteListener=this;
 
 
         reference= FirebaseDatabase.getInstance().getReference().child("Adoption");
@@ -56,7 +57,7 @@ public class adoptNowPage extends AppCompatActivity implements NavigationView.On
                     list.add(r);
                 }
 
-                adoptionAdapter =new AdoptionAdapter(adoptNowPage.this,list);
+                adoptionAdapter =new AdoptionAdapter(adoptNowPage.this,list,onNoteListener);
                 recyclerView.setAdapter(adoptionAdapter);
 
             }
@@ -160,5 +161,15 @@ public class adoptNowPage extends AppCompatActivity implements NavigationView.On
             finish();
         }
         return false;
+    }
+
+    @Override
+    public void onNoteClickAdopt(int position) {
+
+        Intent shop = new Intent(adoptNowPage.this, adoptionBooking.class);
+        shop.putExtra("position",list.get(position));
+        startActivity(shop);
+        finish();
+
     }
 }

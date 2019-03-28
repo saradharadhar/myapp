@@ -13,24 +13,25 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-
+//adapter for adoption recylcer
 public class AdoptionAdapter extends RecyclerView.Adapter<AdoptionAdapter.MyViewHolder> {
 
     Context context;
     ArrayList<Adoptions> adoptions;
-
-    public AdoptionAdapter(Context c,ArrayList<Adoptions> r) {
+OnNoteListenerAdopt onNoteListener;
+    public AdoptionAdapter(Context c,ArrayList<Adoptions> r,OnNoteListenerAdopt onNoteListener) {
 
         context=c;
         adoptions=r;
+        this.onNoteListener=onNoteListener;
 
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new AdoptionAdapter.MyViewHolder(LayoutInflater.from(context).inflate(R.layout.cardview,viewGroup,false));
-
+        View view=LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.cardview,viewGroup,false);
+        return new MyViewHolder(view,onNoteListener);
     }
 
     @Override
@@ -48,15 +49,16 @@ public class AdoptionAdapter extends RecyclerView.Adapter<AdoptionAdapter.MyView
         return adoptions.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
 
         TextView breed,age,colour,rating;
         ImageView photo;
 
         Button adopt;
+        OnNoteListenerAdopt onNoteListener;
 
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView, OnNoteListenerAdopt onNoteListener) {
             super(itemView);
 
             breed=(TextView)itemView.findViewById(R.id.rest_name);
@@ -64,8 +66,24 @@ public class AdoptionAdapter extends RecyclerView.Adapter<AdoptionAdapter.MyView
             colour=(TextView) itemView.findViewById(R.id.rest_hours);
             photo=(ImageView) itemView.findViewById(R.id.rest_image);
             rating=(TextView)itemView.findViewById(R.id.rest_rating);
-            adopt.setText("Adopt");
+            //adopt.setText("Adopt");
             rating.setVisibility(View.INVISIBLE);
+
+            this.onNoteListener= onNoteListener;
+
+            itemView.setOnClickListener(this);
+
         }
+
+        @Override
+        public void onClick(View v) {
+          onNoteListener.onNoteClickAdopt(getAdapterPosition());
+
+        }
+    }
+
+    public interface OnNoteListenerAdopt
+    {
+        void onNoteClickAdopt(int position);
     }
 }

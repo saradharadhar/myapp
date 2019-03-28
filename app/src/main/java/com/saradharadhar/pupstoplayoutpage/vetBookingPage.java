@@ -68,7 +68,6 @@ public class vetBookingPage extends AppCompatActivity implements NavigationView.
     String [] timings;
     String selectedTime;
 
-    private FusedLocationProviderClient client;
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
@@ -89,7 +88,6 @@ public class vetBookingPage extends AppCompatActivity implements NavigationView.
         location = (ImageButton) findViewById(R.id.vet_location_booking);
         call = (ImageButton) findViewById(R.id.call_booking_vet);
         book = (Button) findViewById(R.id.vet_button_booking);
-        requestPerm();
 
         timings=getResources().getStringArray(R.array.restaurantBooking);
 
@@ -132,39 +130,11 @@ public class vetBookingPage extends AppCompatActivity implements NavigationView.
             }
         });
 
-        client = LocationServices.getFusedLocationProviderClient(vetBookingPage.this);
-
-        final Double[] lat = new Double[1];
-        final Double[] longi = new Double[1];
-
-        final String currentLat,currentLong;
 
 
 
-        /*location.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(ActivityCompat.checkSelfPermission(vetBookingPage.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
-                {
-                    return;
-                }
-                client.getLastLocation().addOnSuccessListener(vetBookingPage.this, new OnSuccessListener<Location>() {
-                    @Override
-                    public void onSuccess(Location location) {
 
-                        if(location!=null)
-                        {
-                            lat[0]=location.getLatitude();
-                            longi[0]=location.getLongitude();
-                        }
 
-                    }
-                });
-            }
-        });*/
-
-        //currentLat=Double.toString(lat[0]);
-        //currentLong=Double.toString(longi[0]);
 
 
 
@@ -231,10 +201,6 @@ public class vetBookingPage extends AppCompatActivity implements NavigationView.
 
     }
 
-    private void requestPerm()
-    {
-        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-    }
 
     private void dialContactPhone(final String phoneNumber) {
         startActivity(new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phoneNumber, null)));

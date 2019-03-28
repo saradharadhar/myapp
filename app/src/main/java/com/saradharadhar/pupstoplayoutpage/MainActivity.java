@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
 {
+
+    //splash time out for slash screen
     private static int SPLASH_TIME_OUT=3000;
     TextView t;
 

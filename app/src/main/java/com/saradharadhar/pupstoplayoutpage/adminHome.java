@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+//admin page for admin to view orders
+
 public class adminHome extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
