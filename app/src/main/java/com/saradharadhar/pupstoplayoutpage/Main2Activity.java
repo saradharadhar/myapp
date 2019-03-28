@@ -85,7 +85,7 @@ public class Main2Activity extends AppCompatActivity {
 
                     if(email.equals("admin@gmail.com") && password.equals("admin"))
                     {
-                        Intent intent =  new Intent(Main2Activity.this, orderPage.class);
+                        Intent intent =  new Intent(Main2Activity.this, adminHome.class);
                         startActivity(intent);
                         finish();
                     }

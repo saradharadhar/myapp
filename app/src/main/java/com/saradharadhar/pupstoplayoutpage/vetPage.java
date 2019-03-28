@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class vetPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class vetPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, vetAdapter.OnNoteListenerVet {
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
@@ -42,7 +42,8 @@ public class vetPage extends AppCompatActivity implements NavigationView.OnNavig
 
         recyclerView = (RecyclerView) findViewById(R.id.vet_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        list = new ArrayList<Vets>();
+
+        final vetAdapter.OnNoteListenerVet onNoteListenerVet=this;
         getSupportActionBar().setTitle("Vets");
         auth=FirebaseAuth.getInstance();
 
@@ -50,13 +51,13 @@ public class vetPage extends AppCompatActivity implements NavigationView.OnNavig
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
+                list = new ArrayList<Vets>();
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                     Vets s = dataSnapshot1.getValue(Vets.class);
                     list.add(s);
                 }
 
-                vetAdapter = new vetAdapter(vetPage.this, list);
+                vetAdapter = new vetAdapter(vetPage.this, list,onNoteListenerVet);
                 recyclerView.setAdapter(vetAdapter);
 
             }
@@ -162,6 +163,16 @@ public class vetPage extends AppCompatActivity implements NavigationView.OnNavig
 
 
         return false;
+    }
+
+    @Override
+    public void onNoteClickVet(int position) {
+
+        Intent shop = new Intent(vetPage.this, vetBookingPage.class);
+        shop.putExtra("position",list.get(position));
+        startActivity(shop);
+        finish();
+
     }
 }
 

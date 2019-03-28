@@ -6,7 +6,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.saradharadhar.pupstoplayoutpage"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion
         versionCode 1
         versionName "1.0"
@@ -37,6 +37,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore:17.0.1'
     //  implementation 'com.jcminarro:RoundKornerLayouts:0.2.0'
     implementation 'com.google.android.gms:play-services-auth:15.0.1'
+    implementation 'com.google.android.gms:play-services-gcm:15.0.1'
+    implementation 'com.google.android.gms:play-services-location:15.0.1'
     //implementation 'com.google.firebase:firebase-crash:16.2.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'

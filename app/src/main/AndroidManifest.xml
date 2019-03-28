@@ -3,6 +3,10 @@
     package="com.saradharadhar.pupstoplayoutpage">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <uses-feature android:name="android.hardware.location.gps" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +15,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".lodgePage"></activity>
+        <activity android:name=".paymentPage" />
+        <activity android:name=".lodgeBookingPage" />
+        <activity android:name=".trainerBookingPage" />
+        <activity android:name=".vetBookingPage" />
+        <activity android:name=".spaBookingPage" />
+        <activity android:name=".bookingPage" />
+        <activity android:name=".adoptNowPage" />
+        <activity android:name=".adoptionPage" />
+        <activity
+            android:name=".trainerAdmin"
+            android:parentActivityName=".adminHome" />
+        <activity
+            android:name=".lodgeAdmin"
+            android:parentActivityName=".adminHome" />
+        <activity
+            android:name=".vetAdmin"
+            android:parentActivityName=".adminHome" />
+        <activity
+            android:name=".spaAdmin"
+            android:parentActivityName=".adminHome" />
+        <activity android:name=".adminHome" />
+        <activity android:name=".lodgePage" />
         <activity android:name=".trainerPage" />
         <activity android:name=".vetPage" />
         <activity android:name=".orderPage" />

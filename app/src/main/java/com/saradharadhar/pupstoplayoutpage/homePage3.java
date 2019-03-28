@@ -176,6 +176,10 @@ ViewFlipper viewFlipper;
         {
             lodgeIntent();
         }
+        if(menuItem.getItemId()==R.id.nav_adoption)
+        {
+            adoptIntent();
+        }
 
         return false;
     }
@@ -222,6 +226,13 @@ ViewFlipper viewFlipper;
     {
         Intent lodge = new Intent(homePage3.this, lodgePage.class);
         startActivity(lodge);
+        finish();
+    }
+
+    public void adoptIntent()
+    {
+        Intent adopt = new Intent(homePage3.this, adoptionPage.class);
+        startActivity(adopt);
         finish();
     }
 }

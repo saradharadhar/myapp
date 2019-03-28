@@ -26,4 +26,7 @@
 
     <item android:id="@+id/nav_logout"
         android:title="Log Out"/>
+
+    <item android:id="@+id/nav_adoption"
+        android:title="Want to Adopt a dog?"/>
     </menu>

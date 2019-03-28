@@ -40,7 +40,9 @@ import java.util.ArrayList;
 
 import javax.annotation.Nullable;
 
-public class restaurantPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+import static com.saradharadhar.pupstoplayoutpage.RestaurantAdapter.*;
+
+public class restaurantPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, OnNoteListener {
 
     //TextView t,b;
 
@@ -54,7 +56,7 @@ public class restaurantPage extends AppCompatActivity implements NavigationView.
     private Button book;
     private TextView name;
     FirebaseAuth auth;
-
+    private String TAG="";
 
 
     @Override
@@ -68,24 +70,29 @@ public class restaurantPage extends AppCompatActivity implements NavigationView.
         b.setTypeface(myCustomFont);*/
         recyclerView=(RecyclerView)findViewById(R.id.restaurant_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        list=new ArrayList<Restaurants>();
-        book=(Button)findViewById(R.id.book);
+
+
         name=(TextView)findViewById(R.id.rest_name);
         auth=FirebaseAuth.getInstance();
+        final OnNoteListener onNoteListener=this;
         getSupportActionBar().setTitle("Restaurants");
+
+
+
+
 
         reference= FirebaseDatabase.getInstance().getReference().child("Restaurants");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
+                list=new ArrayList<Restaurants>();
                 for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren())
                 {
                     Restaurants r=dataSnapshot1.getValue(Restaurants.class);
                     list.add(r);
                 }
 
-                restaurantAdapter=new RestaurantAdapter(restaurantPage.this,list);
+                restaurantAdapter=new RestaurantAdapter(restaurantPage.this,list,onNoteListener);
                 recyclerView.setAdapter(restaurantAdapter);
 
             }
@@ -193,5 +200,19 @@ public class restaurantPage extends AppCompatActivity implements NavigationView.
             finish();
         }
         return false;
+    }
+
+    @Override
+    public void onNoteClick(int position) {
+
+
+
+        //Toast.makeText(this, Integer.toString(position), Toast.LENGTH_SHORT).show();
+        Intent shop = new Intent(restaurantPage.this, bookingPage.class);
+        shop.putExtra("position",list.get(position));
+        startActivity(shop);
+        finish();
+
+
     }
 }

@@ -1,8 +1,126 @@
 package com.saradharadhar.pupstoplayoutpage;
 
-public class Spas {
+import android.os.Parcel;
+import android.os.Parcelable;
 
-    private String name;private String hours; private String address;private String photo;
+public class Spas implements Parcelable{
+
+    private String name;
+    private String hours;
+    private String address;
+    private String photo;
+    private String phone;
+    private Double latitude;
+    private Double longitude;
+    private String image1,image2,image3;
+
+    protected Spas(Parcel in) {
+        name = in.readString();
+        hours = in.readString();
+        address = in.readString();
+        photo = in.readString();
+        phone = in.readString();
+        if (in.readByte() == 0) {
+            latitude = null;
+        } else {
+            latitude = in.readDouble();
+        }
+        if (in.readByte() == 0) {
+            longitude = null;
+        } else {
+            longitude = in.readDouble();
+        }
+        image1 = in.readString();
+        image2 = in.readString();
+        image3 = in.readString();
+        rating = in.readDouble();
+    }
+
+    public static final Creator<Spas> CREATOR = new Creator<Spas>() {
+        @Override
+        public Spas createFromParcel(Parcel in) {
+            return new Spas(in);
+        }
+
+        @Override
+        public Spas[] newArray(int size) {
+            return new Spas[size];
+        }
+    };
+
+    public String getImage1() {
+        return image1;
+    }
+
+    public void setImage1(String image1) {
+        this.image1 = image1;
+    }
+
+    public String getImage2() {
+        return image2;
+    }
+
+    public void setImage2(String image2) {
+        this.image2 = image2;
+    }
+
+    public String getImage3() {
+        return image3;
+    }
+
+    public void setImage3(String image3) {
+        this.image3 = image3;
+    }
+
+    public Spas(String image1, String image2, String image3) {
+        this.image1 = image1;
+        this.image2 = image2;
+        this.image3 = image3;
+    }
+
+    public String getPhone() {
+
+
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+
+
+        this.phone = phone;
+    }
+
+    public String getLatitude() {
+        double r=latitude;
+
+        String lat=Double.toString(r);
+
+        return lat;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        double r=longitude;
+
+        String log=Double.toString(r);
+
+        return log;
+    }
+
+    public void setLongitude(Double logitude) {
+        this.longitude = logitude;
+    }
+
+    public Spas(String phone, Double latitude, Double longitude) {
+        this.phone = phone;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+
 
     public String getPhoto() {
         return photo;
@@ -59,5 +177,36 @@ public class Spas {
 
     public void setRating(double rating) {
         this.rating = rating;
+    }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeString(hours);
+        dest.writeString(address);
+        dest.writeString(photo);
+        dest.writeString(phone);
+        if (latitude == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeDouble(latitude);
+        }
+        if (longitude == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeDouble(longitude);
+        }
+        dest.writeString(image1);
+        dest.writeString(image2);
+        dest.writeString(image3);
+        dest.writeDouble(rating);
     }
 }

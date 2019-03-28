@@ -12,9 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
+
         android:background="#ffebcd">
 
     <RelativeLayout
+        android:id="@+id/card_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -73,16 +75,6 @@
             android:paddingRight="7dp"
 
             />
-
-        <Button
-            android:id="@+id/book"
-            android:layout_width="65dp"
-            android:layout_height="30dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:background="#ffa07a"
-            android:text="Book"
-            android:textSize="15sp" />
 
     </RelativeLayout>
 

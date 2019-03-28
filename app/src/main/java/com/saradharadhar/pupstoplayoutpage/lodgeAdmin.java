@@ -15,25 +15,24 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class orderPage extends AppCompatActivity {
+public class lodgeAdmin extends AppCompatActivity {
 
     DatabaseReference reference;
     private RecyclerView recyclerView;
     ArrayList<Orders> list;
     OrdersAdapter OrdersAdapter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cart_page);
-        getSupportActionBar().setTitle("Orders");
+        setContentView(R.layout.activity_lodge_admin);
+        getSupportActionBar().setTitle("Lodge Orders");
 
         recyclerView=(RecyclerView)findViewById(R.id.order_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
-        reference= FirebaseDatabase.getInstance().getReference().child("Orders");
+        reference= FirebaseDatabase.getInstance().getReference().child("Lodge Orders");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -45,14 +44,14 @@ public class orderPage extends AppCompatActivity {
                     list.add(r);
                 }
 
-                OrdersAdapter =new OrdersAdapter(orderPage.this,list);
+                OrdersAdapter =new OrdersAdapter(lodgeAdmin.this,list);
                 recyclerView.setAdapter(OrdersAdapter);
 
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(orderPage.this, "wrong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(lodgeAdmin.this, "wrong", Toast.LENGTH_SHORT).show();
 
             }
         });

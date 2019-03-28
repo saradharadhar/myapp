@@ -27,10 +27,13 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
     ArrayList<Restaurants> restaurants;
     DatabaseReference mDatabase;
     ArrayList<Orders> list;
-    public RestaurantAdapter(Context c,ArrayList<Restaurants> r) {
+    OnNoteListener mOnNoteListener;
+
+    public RestaurantAdapter(Context c, ArrayList<Restaurants> r,OnNoteListener onNoteListener) {
 
         context=c;
         restaurants=r;
+        this.mOnNoteListener=onNoteListener;
 
     }
 
@@ -38,7 +41,10 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
-        return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.cardview,viewGroup,false));
+        View view=LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.cardview,viewGroup,false);
+        return new MyViewHolder(view,mOnNoteListener);
+
+        //return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.cardview,viewGroup,false),mOnNoteListener);
     }
 
     @Override
@@ -49,18 +55,9 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
         myViewHolder.type.setText(restaurants.get(i).getType());
         myViewHolder.rating.setText(restaurants.get(i).getRating());
         Picasso.get().load(restaurants.get(i).getPhoto()).into(myViewHolder.photo);
-
-        myViewHolder.book.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String name;
-                name=restaurants.get(i).getName();
-
-                Orders c=new Orders();
-                c.setName(name);
-                writeToOrders(c);
-            }
-        });
+        /*myViewHolder.phone.equals(restaurants.get(i).getPhone());
+        myViewHolder.latitude.equals(restaurants.get(i).getLatitude());
+        myViewHolder.longitude.equals(restaurants.get(i).getLongitude());*/
 
 
 
@@ -72,7 +69,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
         return restaurants.size();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder
+    class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
         TextView name,hours,type,rating;
 
@@ -80,63 +77,39 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
 
         ImageView photo;
 
+        OnNoteListener onNoteListener;
 
-        public MyViewHolder(@NonNull View itemView) {
+        String latitude,longitude,phone;
+
+
+        public MyViewHolder(@NonNull View itemView, OnNoteListener onNoteListener) {
             super(itemView);
             name=(TextView)itemView.findViewById(R.id.rest_name);
             hours=(TextView)itemView.findViewById(R.id.rest_hours);
             type=(TextView)itemView.findViewById(R.id.rest_type);
             rating=(TextView)itemView.findViewById(R.id.rest_rating);
             photo=(ImageView)itemView.findViewById(R.id.rest_image);
-            book=(Button)itemView.findViewById(R.id.book);
+            latitude="";
+            longitude="";
+            phone="";
+
+            this.onNoteListener=onNoteListener;
+
+            itemView.setOnClickListener(this);
 
 
 
         }
+
+        @Override
+        public void onClick(View v) {
+
+            onNoteListener.onNoteClick(getAdapterPosition());
+
+        }
     }
-
-    private void writeToOrders(final Orders c)
+    public interface OnNoteListener
     {
-        mDatabase= FirebaseDatabase.getInstance().getReference();
-
-        //final int size = 0;
-        //int size = getSize();
-    //    Long tsLong = System.currentTimeMillis();
-     //   String ts = tsLong.toString();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy-hh-mm-ss");
-        String format = simpleDateFormat.format(new Date());
-        mDatabase.child("Orders").child("order" +format).setValue(c);
-
-
-
-    }
-
-    public int getSize()
-    {
-        mDatabase= FirebaseDatabase.getInstance().getReference();
-        final int[] count = {0};
-
-        mDatabase.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                count[0] = (int) dataSnapshot.child("Orders").getChildrenCount();
-
-
-              //  for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren())
-             //   {
-                    //  Orders r=dataSnapshot1.getValue(Orders.class);
-
-                    // list.add(r);
-                    // count++;
-             //   }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-        return count[0];
+        void onNoteClick(int position);
     }
 }

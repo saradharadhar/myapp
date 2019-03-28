@@ -16,7 +16,7 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
-public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHolder> {
+public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHolder1> {
 
     Context context;
     ArrayList<Orders> carts;
@@ -30,14 +30,16 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new OrdersAdapter.MyViewHolder(LayoutInflater.from(context).inflate(R.layout.cardview,viewGroup,false));
+    public MyViewHolder1 onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        return new OrdersAdapter.MyViewHolder1(LayoutInflater.from(context).inflate(R.layout.cardview2,viewGroup,false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
+    public void onBindViewHolder(@NonNull MyViewHolder1 myViewHolder, int i) {
 
         myViewHolder.name.setText(carts.get(i).getName());
+        myViewHolder.placedBy.setText(carts.get(i).getPlacedBy());
+        myViewHolder.time.setText(carts.get(i).getTimeAndDate());
 
 
 
@@ -48,22 +50,22 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
         return carts.size();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder
+    class MyViewHolder1 extends RecyclerView.ViewHolder
     {
         TextView name;
-        TextView hours,type,rating;
+        TextView placedBy,time;
         Button book;
 
-        ImageView photo;
+        //ImageView photo;*/
 
 
-        public MyViewHolder(View itemView)
+        public MyViewHolder1(View itemView)
         {
             super(itemView);
-            name=(TextView)itemView.findViewById(R.id.rest_name);
-            hours=(TextView)itemView.findViewById(R.id.rest_hours);
-            type=(TextView)itemView.findViewById(R.id.rest_type);
-            rating=(TextView)itemView.findViewById(R.id.rest_rating);
+            name=(TextView)itemView.findViewById(R.id.orderplace_name);
+            placedBy=(TextView)itemView.findViewById(R.id.orderplace_placedBy);
+            time=(TextView)itemView.findViewById(R.id.orderplace_time);
+            /*rating=(TextView)itemView.findViewById(R.id.rest_rating);
             photo=(ImageView)itemView.findViewById(R.id.rest_image);
             book=(Button)itemView.findViewById(R.id.book);
 
@@ -72,7 +74,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
             rating.setVisibility(View.INVISIBLE);
             photo.setVisibility(View.INVISIBLE);
             book.setVisibility(View.INVISIBLE);
-
+*/
 
         }
     }

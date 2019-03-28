@@ -5,15 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffebcd"
-    android:orientation="vertical"
-    tools:context=".orderPage">
+    tools:context=".vetAdmin">
 
-
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/order_list"/>
-
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/order_list"/>
 
 
 </android.support.constraint.ConstraintLayout>

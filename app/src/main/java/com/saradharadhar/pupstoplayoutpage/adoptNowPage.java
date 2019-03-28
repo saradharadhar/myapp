@@ -24,47 +24,46 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class trainerPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, TrainerAdapter.OnNoteListenerTrain {
+public class adoptNowPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
+    FirebaseAuth auth;
 
     DatabaseReference reference;
     private RecyclerView recyclerView;
-    ArrayList<Trainers> list;
-    TrainerAdapter trainerAdapter ;
-    FirebaseAuth auth;
+    ArrayList<Adoptions> list;
+    AdoptionAdapter adoptionAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_trainer_page);
+        setContentView(R.layout.activity_adopt_now_page);
 
-        recyclerView = (RecyclerView) findViewById(R.id.trainer_list);
+        recyclerView=(RecyclerView)findViewById(R.id.adopt_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        auth=FirebaseAuth.getInstance();
-        getSupportActionBar().setTitle("Trainers");
-        final TrainerAdapter.OnNoteListenerTrain onNoteListenerTrain=this;
 
-        reference = FirebaseDatabase.getInstance().getReference().child("Trainers");
+        reference= FirebaseDatabase.getInstance().getReference().child("Adoption");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                list = new ArrayList<Trainers>();
-                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                    Trainers s = dataSnapshot1.getValue(Trainers.class);
-                    list.add(s);
+                list=new ArrayList<Adoptions>();
+                for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren())
+                {
+                    Adoptions r=dataSnapshot1.getValue(Adoptions.class);
+
+                    list.add(r);
                 }
 
-                trainerAdapter = new TrainerAdapter(trainerPage.this, list,onNoteListenerTrain);
-                recyclerView.setAdapter(trainerAdapter);
+                adoptionAdapter =new AdoptionAdapter(adoptNowPage.this,list);
+                recyclerView.setAdapter(adoptionAdapter);
 
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(trainerPage.this, "wrong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(adoptNowPage.this, "wrong", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -80,7 +79,7 @@ public class trainerPage extends AppCompatActivity implements NavigationView.OnN
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(trainerPage.this);
+        navigationView.setNavigationItemSelectedListener(adoptNowPage.this);
     }
 
     @Override
@@ -105,70 +104,61 @@ public class trainerPage extends AppCompatActivity implements NavigationView.OnN
 
     }
 
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
         if(menuItem.getItemId()==R.id.nav_home)
         {
-            Intent login = new Intent(trainerPage.this, homePage3.class);
+            Intent login = new Intent(adoptNowPage.this, homePage3.class);
             startActivity(login);
             finish();
 
         }
         if(menuItem.getItemId()==R.id.nav_rest)
         {
-            Intent home = new Intent(trainerPage.this, restaurantPage.class);
+            Intent home = new Intent(adoptNowPage.this, restaurantPage.class);
             startActivity(home);
             finish();
         }
         if(menuItem.getItemId()==R.id.nav_spa)
         {
-            Intent home = new Intent(trainerPage.this, spaPage.class);
+            Intent home = new Intent(adoptNowPage.this, spaPage.class);
             startActivity(home);
             finish();
         }
         if(menuItem.getItemId()==R.id.nav_vet)
         {
-            Intent vet = new Intent(trainerPage.this, vetPage.class);
+            Intent vet = new Intent(adoptNowPage.this, vetPage.class);
             startActivity(vet);
             finish();
         }
         if(menuItem.getItemId()==R.id.nav_trainer)
         {
-            Intent trainer = new Intent(trainerPage.this, trainerPage.class);
+            Intent trainer = new Intent(adoptNowPage.this, trainerPage.class);
             startActivity(trainer);
             finish();
         }
         if(menuItem.getItemId()==R.id.nav_lodge)
         {
-            Intent lodge = new Intent(trainerPage.this, lodgePage.class);
+            Intent lodge = new Intent(adoptNowPage.this, lodgePage.class);
             startActivity(lodge);
             finish();
         }
         if(menuItem.getItemId()==R.id.nav_logout)
         {
             auth.signOut();
-            Intent login = new Intent(trainerPage.this, Main2Activity.class);
+            Intent login = new Intent(adoptNowPage.this, Main2Activity.class);
             startActivity(login);
             finish();
 
         }
         if(menuItem.getItemId()==R.id.nav_shop)
         {
-            Intent shop = new Intent(trainerPage.this, shopPage.class);
+            Intent shop = new Intent(adoptNowPage.this, shopPage.class);
             startActivity(shop);
             finish();
         }
         return false;
-    }
-
-    @Override
-    public void onNoteClickTrain(int position) {
-
-        Intent shop = new Intent(trainerPage.this, trainerBookingPage.class);
-        shop.putExtra("position",list.get(position));
-        startActivity(shop);
-        finish();
-
     }
 }

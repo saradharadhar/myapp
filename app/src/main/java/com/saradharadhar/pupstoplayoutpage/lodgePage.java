@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class lodgePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class lodgePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener , LodgeAdapter.OnNoteListenerLodge {
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
@@ -42,21 +42,22 @@ public class lodgePage extends AppCompatActivity implements NavigationView.OnNav
 
         recyclerView = (RecyclerView) findViewById(R.id.lodge_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        list = new ArrayList<Lodges>();
+
         auth=FirebaseAuth.getInstance();
         getSupportActionBar().setTitle("Lodgings");
+        final LodgeAdapter.OnNoteListenerLodge onNoteListenerLodge=this;
 
         reference = FirebaseDatabase.getInstance().getReference().child("Lodgings");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
+                list = new ArrayList<Lodges>();
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                     Lodges s = dataSnapshot1.getValue(Lodges.class);
                     list.add(s);
                 }
 
-                trainerAdapter = new LodgeAdapter(lodgePage.this, list);
+                trainerAdapter = new LodgeAdapter(lodgePage.this, list,onNoteListenerLodge);
                 recyclerView.setAdapter(trainerAdapter);
 
             }
@@ -159,5 +160,15 @@ public class lodgePage extends AppCompatActivity implements NavigationView.OnNav
             finish();
         }
         return false;
+    }
+
+    @Override
+    public void onNoteClickLodge(int position) {
+
+        Intent shop = new Intent(lodgePage.this, lodgeBookingPage.class);
+        shop.putExtra("position",list.get(position));
+        startActivity(shop);
+        finish();
+
     }
 }

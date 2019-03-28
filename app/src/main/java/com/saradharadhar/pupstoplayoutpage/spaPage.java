@@ -25,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class spaPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class spaPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, SpaAdapter.OnNoteListenerSpa {
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
@@ -42,7 +42,8 @@ public class spaPage extends AppCompatActivity implements NavigationView.OnNavig
         setContentView(R.layout.activity_spa_page);
         recyclerView=(RecyclerView)findViewById(R.id.spa_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        list=new ArrayList<Spas>();
+
+        final SpaAdapter.OnNoteListenerSpa onNoteListenerSpa=this;
         auth=FirebaseAuth.getInstance();
         getSupportActionBar().setTitle("Spa's & Groomers");
 
@@ -50,14 +51,14 @@ public class spaPage extends AppCompatActivity implements NavigationView.OnNavig
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
+                list=new ArrayList<Spas>();
                 for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren())
                 {
                     Spas s=dataSnapshot1.getValue(Spas.class);
                     list.add(s);
                 }
 
-                spaAdapter=new SpaAdapter(spaPage.this,list);
+                spaAdapter=new SpaAdapter(spaPage.this,list,onNoteListenerSpa);
                 recyclerView.setAdapter(spaAdapter);
 
             }
@@ -171,4 +172,11 @@ public class spaPage extends AppCompatActivity implements NavigationView.OnNavig
     }
 
 
+    @Override
+    public void onNoteClickSpa(int position) {
+        Intent shop = new Intent(spaPage.this, spaBookingPage.class);
+        shop.putExtra("position",list.get(position));
+        startActivity(shop);
+        finish();
+    }
 }
